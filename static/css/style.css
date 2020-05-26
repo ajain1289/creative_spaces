@@ -217,7 +217,7 @@ a.reqe-button {
 /* banner */
 
 .banner-img {
-    background: url(../images/main.jpg) no-repeat bottom;
+    background: url(../images/main1.jpg) no-repeat bottom;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -990,6 +990,14 @@ h2.sub-tittle {
 }
 
 form.contact-wthree .form-control {
+    border-radius: 0;
+    background: #eee;
+    border: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+form.contact-wthree .form-control-file {
     border-radius: 0;
     background: #eee;
     border: none;

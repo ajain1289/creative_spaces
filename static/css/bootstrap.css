@@ -6310,6 +6310,11 @@ button.bg-dark:focus {
   display: flex !important;
 }
 
+.centering {
+  align-items: center;
+  justify-content: center;
+}
+
 .d-inline-flex {
   display: -webkit-inline-box !important;
   display: -ms-inline-flexbox !important;
