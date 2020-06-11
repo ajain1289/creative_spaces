@@ -61,8 +61,9 @@
 								</a>
 							</li>
 							<li class="nav-item mx-xl-5 mx-lg-3 my-lg-0 my-3">
-								<a class="nav-link" href="{% url 'backend:about_us' %}">About Us</a>
+								<a class="nav-link" href="{% url 'backend:products' %}">Products</a>
 							</li>
+
 
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -75,15 +76,12 @@
 									<a class="dropdown-item" href="{% url 'backend:admin_registration' %}">Admin</a>
 									{% endif %}
 									<a class="dropdown-item" href="/professional/registration/">Professional</a>
-									<!--<a class="dropdown-item scroll" href="#testi">Testimonials</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item scroll" href="#what">What We do</a>
-									<a class="dropdown-item" href="/about_us/">Some More</a>-->
 								</div>
 							</li>
 
+
 							<li class="nav-item mx-xl-5 mx-lg-3 mt-lg-0 mt-3">
-								<a class="nav-link" href="{% url 'backend:gallery' %}">Gallery</a>
+								<a class="nav-link" href="{% url 'backend:portfolio' %}">Portfolio</a>
 							</li>
 
 							<li class="nav-item dropdown">
@@ -92,34 +90,39 @@
 									More
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-									<a class="dropdown-item" href="/professional/profile/">My Profile</a>
-									<a class="dropdown-item" href="{% url 'backend:contact_us' %}">Contact Us</a>
+									<a class="dropdown-item" href="{% url 'backend:about_us' %}">About Us</a>
+									<a class="dropdown-item" href="{% url 'users:ask_a_question' %}">Professionals</a>
 								</div>
 							</li>
 							<!--<li class="nav-item mt-lg-0 mt-3">
-								<a class="nav-link" href="{% url 'backend:contact_us' %}">Contact Us</a>
+								<a class="nav-link" href="">Contact Us</a>
 							</li>-->
 							<li class="search my-lg-0 my-4">
-								<a class="play-icon popup-with-zoom-anim" href="#small-dialog">
-									<i class="fa fa-search" aria-hidden="true"></i>
+								{% if request.session.role != 'professional' and request.session.role != 'admin' %}
+								<a href="/show_cart/">
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								</a>
-								<div id="small-dialog" class="mfp-hide">
-									<div class="search-top">
-										<div class="search-inn">
-											<form action="#" method="post" class="disply-flex">
-												<input class="form-control" type="search" name="search" placeholder="Type something..." required>
-												<button class="btn2">
-													<i class="fa fa-search" aria-hidden="true"></i>
-												</button>
-											</form>
-											<p class="text-white font-weight-bold mt-4">Creative Spaces</p>
-										</div>
-									</div>
-								</div>
+								{% endif %}
+<!--								<div id="small-dialog" class="mfp-hide">-->
+<!--									<div class="search-top">-->
+<!--										<div class="search-inn">-->
+<!--											<form action="#" method="post" class="disply-flex">-->
+<!--												<input class="form-control" type="search" name="search" placeholder="Type something..." required>-->
+<!--												<button class="btn2">-->
+<!--													<i class="fa fa-shopping-cart" aria-hidden="true"></i>-->
+<!--												</button>-->
+<!--											</form>-->
+<!--											<p class="text-white font-weight-bold mt-4">Creative Spaces</p>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
 							</li>
 							<li class="ml-lg-4 mb-lg-0 mb-4">
-								<!--<a href="{% url 'backend:profile' %}" class="reqe-button">Profile</a>-->
+								{% if not request.session.logged_in %}
 								<a href="{% url 'backend:login' %}" class="reqe-button">Login</a>
+								{% else %}
+								<a href="{% url 'backend:login' %}" class="reqe-button">Dashboard</a>
+								{% endif %}
 							</li>
 						</ul>
 					</div>
@@ -132,7 +135,63 @@
 
 	{% block content %} {% endblock %}
 
+<!-- footer -->
+	<footer>
+		<div class="w3ls-footer-grids py-4">
+			<div class="container py-xl-5 py-lg-3">
+				<div class="row">
+					<div class="col-lg-3 w3l-footer-logo text-center">
+						<!-- logo -->
+						<a class="navbar-brand font-weight-bold" href="index.html">
+							<i class="fa fa-ils mr-2" aria-hidden="true"></i>Creative Spaces
+						</a>
+						<!-- //logo -->
+					</div>
+					<!-- button -->
+					<div class="col-lg-5 w3l-footer text-lg-right text-center mt-3">
+						<ul class="list-unstyled footer-nav-wthree">
+							<li class="mr-4">
+								<a href="index.html" class="active">Home</a>
+							</li>
+							<li class="mr-4">
+								<a class="" href="about.html">About Us</a>
+							</li>
+							<li class="mr-4">
+								<a class="" href="gallery.html">Gallery</a>
+							</li>
+							<li>
+								<a class="" href="contact.html">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+					<!-- //button -->
+					<!-- social icons -->
+					<div class="col-lg-4 w3social-icons text-lg-right text-center mt-lg-0 mt-3">
+						<ul>
+							<li>
+								<a href="#" class="rounded-circle">
+									<i class="fa fa-facebook-f"></i>
+								</a>
+							</li>
+							<li class="px-2">
+								<a href="#" class="rounded-circle">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="rounded-circle">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- //social icons -->
+				</div>
 
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
 
 	<!-- Js files -->
 	<!-- JavaScript -->

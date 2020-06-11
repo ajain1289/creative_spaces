@@ -1070,6 +1070,14 @@ form.contact-wthree label {
     ;
 }
 
+.error-404 h4 {
+    font-size: 12em;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
 /* //contact page */
 
 /* responsive */

@@ -46,7 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backend_app.apps.BackendAppConfig',
     'professionals.apps.ProfessionalsConfig',
+    'users.apps.UsersConfig',
+    'paypal.standard.ipn',
 ]
+
+PAYPAL_RECEIVER_EMAIL = 'harmanpreetvirdi1234@gmail.com'
+PAYPAL_TEST = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

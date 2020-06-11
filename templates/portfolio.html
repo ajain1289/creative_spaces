@@ -1,0 +1,50 @@
+{% extends 'master.html' %}
+
+{% block title %}
+Creative Spaces | Portfolio
+{% endblock %}
+
+{% block content %}
+<!-- banner -->
+	<div class="banner-w3ls-2">
+
+	</div>
+	<!-- //banner -->
+	<!-- page details -->
+	<div class="breadcrumb-agile">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+		</ol>
+	</div>
+	<!-- //page details -->
+
+	<!-- contact -->
+	<div class="gallery pt-5">
+		<div class="container pt-xl-5 pt-lg-3">
+			<h3 class="title-w3 mb-sm-5 mb-4 text-dark text-center font-weight-bold">Portfolio</h3>
+			<ul class="demo">
+				{% for project in projects %}
+				<li>
+					<div class="gallery-grid1">
+						<img src="/media/{{ project.photo }}" alt=" " width="350" height="300" />
+						<div class="p-mask">
+							<h5 class="text-white">Created by: {{ project.name }}</h5>
+							{% if request.session.role == 'user' %}
+							<a href="/user/add_review/?id={{ project.pk }}" class="btn button-style mt-2">Add Review</a>
+							{% elif request.session.role == 'professional' or request.session.role == 'admin' %}
+							<span></span>
+							{% else %}
+							<span class="text-warning">Please login to add review</span>
+							{% endif %}
+						</div>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<!-- //gallery -->
+{% endblock %}
